@@ -1,0 +1,571 @@
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<title>김윤기 — 포트폴리오</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 검색엔진 색인 차단. 링크는 정상 동작한다. 공개 검색에 노출하고 싶으면 이 줄을 지운다. -->
+<meta name="robots" content="noindex, nofollow" />
+
+<style>
+  :root {
+    --paper:      #EDEFF2;
+    --paper-2:    #F6F7F9;
+    --ink:        #16202B;
+    --ink-soft:   #52616F;
+    --rule:       #C6CDD4;
+    --rule-soft:  #DDE2E7;
+    --accent:     #2F5BEA;
+    --seal:       #A8372B;
+
+    --sans: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo",
+            "Malgun Gothic", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "D2Coding", Menlo, monospace;
+
+    --measure: 68rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:     #10161D;
+      --paper-2:   #161E27;
+      --ink:       #E4E9EE;
+      --ink-soft:  #94A2B0;
+      --rule:      #2C3742;
+      --rule-soft: #212B34;
+      --accent:    #7A9BFF;
+      --seal:      #E0705F;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background-color: var(--paper);
+    /* 방안지 — 설계 초안을 뜨던 종이 */
+    background-image:
+      linear-gradient(var(--rule-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+  }
+
+  .sheet {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 2rem 8rem;
+  }
+
+  /* ---------- 표제 ---------- */
+
+  .masthead {
+    padding: 7rem 0 3rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .75rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 1.75rem;
+  }
+
+  .masthead h1 {
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -.045em;
+    line-height: .95;
+    margin: 0 0 .6rem;
+  }
+
+  .masthead h1 .given { color: var(--accent); }
+
+  .role {
+    font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin: 0 0 2.5rem;
+    letter-spacing: -.01em;
+  }
+
+  /* 지원처마다 이 문단만 교체 — 아래 프로젝트 섹션은 손대지 않는다 */
+  .pitch {
+    max-width: 46rem;
+    font-size: 1.0625rem;
+    margin: 0;
+  }
+  .pitch strong { font-weight: 700; box-shadow: inset 0 -.4em 0 color-mix(in srgb, var(--accent) 16%, transparent); }
+
+  /* ---------- 섹션 ---------- */
+
+  section { padding: 4.5rem 0 0; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: .6rem;
+    margin-bottom: 2.5rem;
+  }
+  .sec-head h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    margin: 0;
+  }
+  .sec-head .count {
+    font-family: var(--mono);
+    font-size: .75rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+    letter-spacing: .08em;
+  }
+
+  /* ---------- 프로젝트 ---------- */
+
+  .project {
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    padding: 2rem 2rem 2.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .project > header { margin-bottom: 1.75rem; }
+
+  .p-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    margin: 0 0 .35rem;
+    line-height: 1.3;
+  }
+  .p-sub {
+    color: var(--ink-soft);
+    font-size: .9375rem;
+    margin: 0;
+  }
+
+  /* 메타 표 — 명세서의 머리글 */
+  .meta {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .875rem;
+    margin-bottom: 1.75rem;
+  }
+  .meta th, .meta td {
+    text-align: left;
+    padding: .55rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  .meta th {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    width: 7.5rem;
+    white-space: nowrap;
+  }
+  .meta td { font-variant-numeric: tabular-nums; }
+
+  /* ---------- 시그니처: 기여도 눈금자 ---------- */
+
+  .ruler { margin: 0 0 1.75rem; }
+
+  .ruler-label {
+    display: flex;
+    align-items: baseline;
+    gap: .6rem;
+    font-family: var(--mono);
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: .5rem;
+  }
+  .ruler-label b {
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: .04em;
+    text-transform: none;
+    font-size: .8125rem;
+  }
+
+  .ruler-track {
+    position: relative;
+    height: 1.25rem;
+    border-left: 1px solid var(--ink);
+    border-right: 1px solid var(--rule);
+  }
+  /* 10% 눈금 */
+  .ruler-track::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 10% 100%;
+  }
+  .ruler-track::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: var(--rule);
+  }
+  .ruler-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: var(--pct);
+    background: var(--accent);
+    opacity: .9;
+  }
+
+  /* ---------- 담당 목록 ---------- */
+
+  .did { margin: 0; padding: 0; list-style: none; }
+  .did li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: .5rem;
+    font-size: .9375rem;
+  }
+  .did li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--mono);
+  }
+  .did strong { font-weight: 700; }
+
+  .note {
+    margin: 1.5rem 0 0;
+    padding: .9rem 1.1rem;
+    border-left: 3px solid var(--seal);
+    background: color-mix(in srgb, var(--seal) 6%, transparent);
+    font-size: .875rem;
+    color: var(--ink-soft);
+  }
+  .note b { color: var(--ink); font-weight: 700; }
+
+  a { color: var(--accent); text-underline-offset: .2em; }
+  a:focus-visible, .repo:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .repo {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .8125rem;
+    margin-top: 1.25rem;
+    word-break: break-all;
+  }
+
+  /* ---------- 작업 방식 (실제 순서가 있는 파이프라인) ---------- */
+
+  .pipeline { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .pipeline li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .pipeline li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--mono);
+    font-size: .8125rem;
+    color: var(--accent);
+    padding-top: .2rem;
+  }
+  .pipeline h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 .15rem;
+    letter-spacing: -.015em;
+  }
+  .pipeline p { margin: 0; font-size: .9063rem; color: var(--ink-soft); }
+
+  /* ---------- 기타 / 스택 ---------- */
+
+  .misc { margin: 0; padding: 0; list-style: none; }
+  .misc li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1rem;
+    padding: .85rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: .9375rem;
+  }
+  .misc .when {
+    font-family: var(--mono);
+    font-size: .8125rem;
+    color: var(--ink-soft);
+    min-width: 8rem;
+  }
+
+  .stack { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+  .stack li {
+    font-family: var(--mono);
+    font-size: .8125rem;
+    border: 1px solid var(--rule);
+    padding: .2rem .6rem;
+    color: var(--ink-soft);
+  }
+  .stack li.on { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- 연락처 ---------- */
+
+  .contact { margin-top: 4.5rem; border-top: 2px solid var(--ink); padding-top: 1.5rem; }
+  .contact dl { display: grid; grid-template-columns: 7.5rem 1fr; gap: .5rem 1rem; margin: 0; font-size: .9375rem; }
+  .contact dt {
+    font-family: var(--mono);
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-top: .2rem;
+  }
+  .contact dd { margin: 0; word-break: break-all; }
+
+  @media (max-width: 640px) {
+    .sheet { padding: 0 1.25rem 5rem; }
+    .masthead { padding-top: 4rem; }
+    .project { padding: 1.5rem 1.25rem 1.75rem; }
+    .meta th { width: 5.5rem; font-size: .6875rem; }
+    .contact dl { grid-template-columns: 1fr; }
+    .pipeline li { grid-template-columns: 2.5rem 1fr; gap: .75rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- 인쇄 = PDF 백업본 ---------- */
+  @media print {
+    :root {
+      --paper: #fff; --paper-2: #fff; --ink: #000; --ink-soft: #444;
+      --rule: #999; --rule-soft: #ccc; --accent: #1a3fb8;
+    }
+    body { background-image: none; font-size: 10.5pt; line-height: 1.6; }
+    .sheet { max-width: none; padding: 0; }
+    .masthead { padding-top: 0; }
+    section { padding-top: 2rem; }
+    .project, .pipeline li, .misc li { break-inside: avoid; }
+    .project { background: #fff; }
+    a { color: #000; text-decoration: none; }
+    .repo::after { content: ""; }
+    @page { margin: 14mm; }
+  }
+</style>
+
+<main class="sheet">
+
+  <header class="masthead">
+    <p class="eyebrow">Portfolio / 2026</p>
+    <h1>김<span class="given">윤기</span></h1>
+    <p class="role">AI 서비스 개발 · 바이브코딩 실무</p>
+
+    <!-- ▼▼ 지원처마다 이 문단만 교체한다. 아래 섹션은 그대로 재사용. ▼▼ -->
+    <p class="pitch">
+      바이브코딩대학 <strong>AX컨설턴트 과정 1기 수료생</strong>입니다. 과정에서 배운
+      BMAD Method·Claude Code·Supabase·Orca를 수료 이후 실제 프로젝트에 그대로 써서,
+      3일짜리 해커톤부터 5개월짜리 팀 서비스, 그리고 혼자 끝까지 만든 상용 제안 건까지
+      마무리했습니다. 2기 수강생이 지금 겪는 구간을 같은 도구로 먼저 통과해 봤습니다.
+    </p>
+    <!-- ▲▲ 교체 구간 끝 ▲▲ -->
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>프로젝트</h2>
+      <span class="count">3건 · 커밋 기준 기여도 표기</span>
+    </div>
+
+    <!-- 1 -->
+    <article class="project">
+      <header>
+        <h2 class="p-title">KiniQ — 만성신장질환 조기 발굴 서비스</h2>
+        <p class="p-sub">넥스트러너스 AI 헬스케어 3기 · Talos 참여기업 프로젝트</p>
+      </header>
+
+      <table class="meta">
+        <tr><th>기간</th><td>2026.01.30 – 06.19 <span style="color:var(--ink-soft)">(약 5개월)</span></td></tr>
+        <tr><th>구성</th><td>팀 프로젝트 · 전체 커밋 147</td></tr>
+        <tr><th>담당</th><td>프론트엔드 전반 + 백엔드 서비스·인증·보안</td></tr>
+        <tr><th>스택</th><td>FastAPI · React(Vite) · PostgreSQL · Redis Stream · Qdrant · Docker 6컨테이너</td></tr>
+      </table>
+
+      <div class="ruler">
+        <p class="ruler-label">내 커밋 <b>97 / 147</b></p>
+        <div class="ruler-track" role="img" aria-label="전체 147커밋 중 97커밋, 약 66퍼센트">
+          <span class="ruler-fill" style="--pct:66%"></span>
+        </div>
+      </div>
+
+      <ul class="did">
+        <li>건강검진 결과 입력 → ML 예측 → 위험군 배정 → 맞춤 챌린지로 이어지는 <strong>사용자 화면 전체</strong> 구현</li>
+        <li>백엔드 <strong>services · apis · repositories · dtos · models · tests</strong> 6계층에 걸쳐 기능 단위로 작업</li>
+        <li>보안 필수항목 8건 — Rate Limit, JWT 강화, 회원 탈퇴 시 데이터 파기, 비밀번호 재설정 이메일 인증</li>
+        <li>Locust 부하 테스트 — 동시 50명 조건에서 조회 API <strong>P95 15ms · 실패율 0%</strong></li>
+        <li>ADR 4건 등 의사결정 기록 문서화</li>
+      </ul>
+
+      <a class="repo" href="https://github.com/AI-HealthCare-03/AH_03_02">github.com/AI-HealthCare-03/AH_03_02</a>
+    </article>
+
+    <!-- 2 -->
+    <article class="project">
+      <header>
+        <h2 class="p-title">LG전자 채용 면접 배정 시스템</h2>
+        <p class="p-sub">바이브코딩대학 AX컨설턴트 1기 해커톤 · LG전자 연계 과제</p>
+      </header>
+
+      <table class="meta">
+        <tr><th>기간</th><td>2026.07.29 – 07.31 <span style="color:var(--ink-soft)">(3일)</span></td></tr>
+        <tr><th>구성</th><td>팀 프로젝트 · 전체 커밋 95 · 3개 트랙 동시 진행</td></tr>
+        <tr><th>담당</th><td>Track C(인증·결과화면) 및 트랙 간 통합</td></tr>
+        <tr><th>스택</th><td>Python · BMAD Method · 제약 충족 배정 엔진</td></tr>
+      </table>
+
+      <div class="ruler">
+        <p class="ruler-label">내 커밋 <b>13 / 95</b></p>
+        <div class="ruler-track" role="img" aria-label="전체 95커밋 중 13커밋, 약 14퍼센트">
+          <span class="ruler-fill" style="--pct:14%"></span>
+        </div>
+      </div>
+
+      <ul class="did">
+        <li>지원자 희망 담당자와 담당자 가능 시간을 함께 만족시키는 <strong>면접 시간 자동 배정</strong> 과제</li>
+        <li>로그인·계정 사전 생성·역할별 권한 강제 등 <strong>인증 전 구간</strong> 담당</li>
+        <li>배정 결과 화면과 <strong>엑셀 내보내기</strong> 구현</li>
+        <li>따로 진행된 <strong>Track A(화면)와 Track B(배정 엔진)를 통합</strong> — 두 쪽이 다르게 해석하던 면접 시작일 기준을 하나로 정리</li>
+        <li>평문 비밀번호 파일과 로컬 DB를 저장소 추적에서 제외</li>
+      </ul>
+
+      <p class="note">
+        <b>커밋 수가 적은 이유:</b> 3일 일정에서 트랙을 나눠 병렬로 작업했고, 저는 통합과 인증을
+        맡아 커밋 단위가 컸습니다. 실제 지원자 데이터를 다루는 과제라 저장소는 비공개입니다.
+      </p>
+    </article>
+
+    <!-- 3 -->
+    <article class="project">
+      <header>
+        <h2 class="p-title">전문가 지식 클론 챗봇</h2>
+        <p class="p-sub">브랜딩·비주얼 전략가 대상 개인 수주 제안 건 · 단독 개발</p>
+      </header>
+
+      <table class="meta">
+        <tr><th>기간</th><td>2026.07.16 – 07.24 <span style="color:var(--ink-soft)">(8일)</span></td></tr>
+        <tr><th>구성</th><td>기획부터 구현까지 단독 · 전체 커밋 66</td></tr>
+        <tr><th>담당</th><td>전부</td></tr>
+        <tr><th>스택</th><td>Next.js · Supabase · Drizzle ORM · Gemini · BMAD Method</td></tr>
+      </table>
+
+      <div class="ruler">
+        <p class="ruler-label">내 커밋 <b>66 / 66</b></p>
+        <div class="ruler-track" role="img" aria-label="전체 66커밋 중 66커밋, 100퍼센트">
+          <span class="ruler-fill" style="--pct:100%"></span>
+        </div>
+      </div>
+
+      <ul class="did">
+        <li>전문가의 블로그·SNS·저서를 학습한 AI 클론에게 상담을 맡기는 서비스. 8일 만에 기획·설계·구현 완주</li>
+        <li>핵심 설계는 <strong>공개 순서</strong>입니다. 클론을 팬에게 바로 내보내지 않고,
+            본인이 위키형 채팅으로 클론의 지식을 열람·교정 → 운영자 승인 큐 → 지식베이스 반영을
+            거친 뒤에 공개합니다. 잘못된 발언이 나가는 위험을 구조로 막았습니다</li>
+        <li>혼자 작업하면서 기획·구현 문서 <strong>6,747줄</strong>을 남김 —
+            브리프, PRD, 아키텍처 명세, 아키텍처 적대적 리뷰, 에픽별 회고, 보류 작업 목록</li>
+        <li>LLM 호출 비용을 감안한 요청 제한(rate limit) 및 무료 티어 모델 확정</li>
+      </ul>
+
+      <p class="note">
+        실제 고객이 있는 제안 건이라 <b>저장소와 고객 정보는 공개하지 않습니다.</b>
+        구현 화면과 설계 문서는 면접 자리에서 직접 보여드릴 수 있습니다.
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>일하는 방식</h2>
+      <span class="count">클론 챗봇 8일간 실제 진행 순서</span>
+    </div>
+
+    <ol class="pipeline">
+      <li>
+        <div><h3>브리프</h3>
+        <p>무엇을 왜 만드는지, 누구의 어떤 문제인지 먼저 글로 정리한다. 코드는 아직 없다.</p></div>
+      </li>
+      <li>
+        <div><h3>PRD</h3>
+        <p>브리프를 기능 요구사항으로 쪼갠다. 이번에 안 만들 것도 명시한다.</p></div>
+      </li>
+      <li>
+        <div><h3>아키텍처 명세</h3>
+        <p>데이터 흐름과 구조를 265줄로 확정한다. AI에게 시키기 전에 판단을 내려둔다.</p></div>
+      </li>
+      <li>
+        <div><h3>적대적 리뷰</h3>
+        <p>내 설계를 일부러 공격하는 리뷰를 255줄 붙인다. 구현 전에 무너뜨려 본다.</p></div>
+      </li>
+      <li>
+        <div><h3>에픽 · 스토리 단위 구현</h3>
+        <p>기능을 스토리로 나누고 하나씩 끝낸다. 스토리마다 구현 기록을 남긴다.</p></div>
+      </li>
+      <li>
+        <div><h3>회고와 보류 목록</h3>
+        <p>에픽이 끝날 때마다 회고를 쓰고, 못 한 일은 지우지 않고 보류 목록으로 추적한다.</p></div>
+      </li>
+    </ol>
+
+    <p style="margin:2rem 0 .75rem; font-family:var(--mono); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft)">사용 도구</p>
+    <ul class="stack">
+      <li class="on">BMAD Method</li>
+      <li class="on">Claude Code</li>
+      <li class="on">Supabase</li>
+      <li class="on">Orca</li>
+      <li>Next.js</li>
+      <li>FastAPI</li>
+      <li>React</li>
+      <li>PostgreSQL</li>
+      <li>Docker</li>
+      <li>Redis</li>
+      <li>Qdrant</li>
+      <li>Python</li>
+      <li>TypeScript</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>그 외</h2>
+    </div>
+    <ul class="misc">
+      <li><span class="when">2026</span><span>난임 환자 임신 예측 AI 해커톤 — 예측 모델 개발 및 발표</span></li>
+      <li><span class="when">2026</span><span>AI 헬스케어 미니 프로젝트 — 팀 발표</span></li>
+      <li><span class="when">2026</span><span>예측 모델 미니 프로젝트 — 팀 발표</span></li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <dl>
+      <dt>Email</dt><dd><a href="mailto:rladbsrl298@gmail.com">rladbsrl298@gmail.com</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/rladbsrl298">github.com/rladbsrl298</a></dd>
+    </dl>
+  </section>
+
+</main>
