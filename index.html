@@ -520,7 +520,7 @@
   <header class="masthead">
     <p class="eyebrow">Portfolio / 2026</p>
     <h1><span class="given">김윤기</span></h1>
-    <p class="role">AX 컨설턴트 — AI 전환 설계와 구현</p>
+    <p class="role">AX 컨설턴트 — AI 전환 진단과 제안</p>
     <p class="declare">무엇이 막혀 있는지 먼저 적고,<br>그다음에 만듭니다.</p>
     <p class="pitch">
       보건행정학을 전공하고 AI 헬스케어 개발 과정과 바이브코딩대학 AX컨설턴트 과정을 거쳤습니다.
@@ -531,7 +531,7 @@
   <section>
     <div class="sec-head">
       <h2>프로젝트</h2>
-      <span class="count">3건</span>
+      <span class="count">4건</span>
     </div>
 
     <article class="project">
@@ -601,6 +601,56 @@
 
     <article class="project">
       <header>
+        <h2 class="p-title">전문가 지식 클론 챗봇</h2>
+        <p class="p-sub">AX컨설턴트 과정 수강 기간 중 진행 · 수주 시나리오 기반 단독 프로젝트</p>
+        <p class="p-kicker">전문가의 블로그·SNS·저서를 학습한 AI가 1:1 상담 일부를 대신하는 서비스</p>
+      </header>
+      <ul class="stack p-tags" aria-label="키워드"><li>#AX</li><li>#챗봇</li><li>#설계문서</li><li>#검증루프</li><li>#단독</li></ul>
+      <table class="meta"><tr><th>기간</th><td>2026.07.16 – 07.24 <span style="color:var(--ink-soft)">(8일)</span></td></tr><tr><th>팀·역할</th><td>단독 — 기획·설계·구현</td></tr><tr><th>기술</th><td>Next.js · Supabase · Drizzle ORM · Gemini · BMAD Method</td></tr></table>
+      <div class="ruler">
+        <p class="ruler-label">내 커밋 <b>66 / 66</b></p>
+        <div class="ruler-track" role="img" aria-label="전체 66커밋 중 66커밋, 약 100퍼센트"><span class="ruler-fill" style="--pct:100%"></span></div>
+      </div>
+      <p class="p-purpose">브랜딩 전략가의 1:1 상담은 단가가 높고 본인 시간이 병목이라, 수요가 있어도 공급이 늘지 않습니다. 전문가의 콘텐츠를 학습한 클론이 상담 일부를 대신하도록 설계했습니다.</p>
+      <ul class="did tight"><li>브리프 → 요구사항 → 구조 설계 순으로 <b>구현 전에 문서로 확정</b> (총 6,747줄)</li><li>전문가 교정과 운영자 승인을 거친 지식만 공개하는 <b>검증 루프</b> 구현</li><li>기능을 스토리 단위로 나눠 구현 문서 <b>13건</b>, 에픽마다 회고와 보류 목록 관리</li><li>공개 범위를 단계로 나눈 로드맵 — 내부 정교화 → 팬 상담 → 리포트 → 멀티 클론</li></ul>
+      <a class="repo" href="https://github.com/rladbsrl298/clone-expert">github.com/rladbsrl298/clone-expert</a>
+      <p class="note">실존 전문가를 상정한 <b>제안용 프로젝트</b>로 계약은 없었습니다. 소재가 된 전문가의 실명과 저서·채널 이름은 <b>가명으로 바꾼 공개본</b>을 올렸으며, 응답 품질은 검증하지 않았습니다. 설계 문서 원본은 면접 자리에서 직접 보여드릴 수 있습니다.</p>
+      <details class="more">
+        <summary><span><span class="when-closed">발생한 문제와 해결 과정</span><span class="when-open">발생한 문제와 해결 과정 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="more-body">
+          <div class="prob">
+            <p class="problem">전문가 한 사람의 시간이 상담의 병목이었습니다.</p>
+
+      <figure class="fig">
+        <div class="scroll">
+        <svg viewBox="0 0 640 128" role="img" aria-labelledby="f-cl">
+          <title id="f-cl">클론의 지식이 공개되기까지 거치는 다섯 단계. 전문가 교정과 운영자 승인을 통과해야 공개된다</title>
+          <defs><marker id="m-cl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ar-ink" d="M0 0 L10 5 L0 10z"/></marker></defs>
+          <rect class="d-box"   x="8"   y="30" width="104" height="56"/><text class="d-t" x="60"  y="63" text-anchor="middle">콘텐츠 학습</text>
+          <rect class="d-after" x="136" y="30" width="104" height="56"/><text class="d-t" x="188" y="63" text-anchor="middle">전문가 교정</text>
+          <rect class="d-after" x="264" y="30" width="104" height="56"/><text class="d-t" x="316" y="63" text-anchor="middle">운영자 승인</text>
+          <rect class="d-box"   x="392" y="30" width="112" height="56"/><text class="d-t" x="448" y="63" text-anchor="middle">지식베이스 반영</text>
+          <rect class="d-box"   x="528" y="30" width="104" height="56"/><text class="d-t" x="580" y="63" text-anchor="middle">공개</text>
+          <line class="d-line" x1="112" y1="58" x2="132" y2="58" marker-end="url(#m-cl)"/>
+          <line class="d-line" x1="240" y1="58" x2="260" y2="58" marker-end="url(#m-cl)"/>
+          <line class="d-line" x1="368" y1="58" x2="388" y2="58" marker-end="url(#m-cl)"/>
+          <line class="d-line" x1="504" y1="58" x2="524" y2="58" marker-end="url(#m-cl)"/>
+          <text class="d-blue" x="252" y="114" text-anchor="middle">이 두 단계를 통과한 지식만 공개 대상이 됩니다</text>
+        </svg>
+        </div>
+      </figure>
+<table class="sum"><tr><th scope="row">문제</th><td>1:1 상담은 단가가 높고 전문가 본인의 시간이 병목이라, 찾는 사람이 있어도 더 받을 수가 없었습니다.</td></tr><tr><th scope="row">판단</th><td>클론이 상담 일부를 대신하되, 틀린 말이 나가는 위험은 사후 대응이 아니라 공개 순서로 막아야 한다고 봤습니다.</td></tr><tr><th scope="row">조치</th><td>전문가가 위키형 채팅으로 클론의 지식을 열람·교정하고, 운영자가 승인한 지식만 지식베이스에 반영한 뒤 공개하도록 설계했습니다.</td></tr><tr><th scope="row">결과</th><td>전문가 교정과 운영자 승인을 통과하지 않은 지식은 공개 대상에 오르지 않습니다. 모델은 비용을 쓰지 않도록 Gemini 무료 티어로 고정했습니다.</td></tr></table>
+          </div>
+          <div class="prob">
+            <p class="problem">같은 지식을 두 사람이 동시에 승인하면 먼저 처리된 결과가 사라질 수 있었습니다.</p>
+            <table class="sum"><tr><th scope="row">문제</th><td>구현 전 설계 검토에서 문제 5건이 걸렸고, 그중 하나가 동시 승인 때 먼저 처리된 결과가 사라지는 문제였습니다.</td></tr><tr><th scope="row">판단</th><td>구현을 끝낸 뒤에 발견했다면 되돌릴 범위가 훨씬 컸을 문제입니다. 구현 전에 발견해서 코드를 쓰기 전에 설계부터 고칠 수 있었습니다.</td></tr><tr><th scope="row">조치</th><td>설계 문서와 인프라 설정, 코드, 테스트까지 함께 고쳐 반영했습니다.</td></tr><tr><th scope="row">결과</th><td>구현에 들어가기 전에 결함 5건이 문서로 정리됐습니다. KiniQ에서 가장 오래 막혔던 기획·설계 단계를 이번에는 먼저 끝낸 셈입니다.</td></tr></table>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <article class="project">
+      <header>
         <h2 class="p-title">LG전자 채용 면접 배정 시스템</h2>
         <p class="p-sub">바이브코딩대학 AX컨설턴트 1기 해커톤 · LG전자 연계 과제</p>
         <p class="p-kicker">면접 담당자가 고른 지원자와 가능 시간을 함께 만족하는 면접 시간표 자동 생성</p>
@@ -656,48 +706,21 @@
 
     <article class="project">
       <header>
-        <h2 class="p-title">전문가 지식 클론 챗봇</h2>
-        <p class="p-sub">AX컨설턴트 과정 수강 기간 중 진행 · 수주 시나리오 기반 단독 프로젝트</p>
-        <p class="p-kicker">전문가의 블로그·SNS·저서를 학습한 AI가 1:1 상담 일부를 대신하는 서비스</p>
+        <h2 class="p-title">사업 리서치 프로젝트 5기 — 상장사 사업·재무 분석</h2>
+        <p class="p-sub">넥스트러너스(오즈코딩스쿨) 사업 리서치 프로젝트 5기 · 진행 중</p>
+        <p class="p-kicker">주차마다 산업을 정해 상장사의 사업 모델·재무·SWOT을 분석하고 10분간 발표</p>
       </header>
-      <ul class="stack p-tags" aria-label="키워드"><li>#AX</li><li>#챗봇</li><li>#설계문서</li><li>#검증루프</li><li>#단독</li></ul>
-      <table class="meta"><tr><th>기간</th><td>2026.07.16 – 07.24 <span style="color:var(--ink-soft)">(8일)</span></td></tr><tr><th>팀·역할</th><td>단독 — 기획·설계·구현</td></tr><tr><th>기술</th><td>Next.js · Supabase · Drizzle ORM · Gemini · BMAD Method</td></tr></table>
-      <div class="ruler">
-        <p class="ruler-label">내 커밋 <b>66 / 66</b></p>
-        <div class="ruler-track" role="img" aria-label="전체 66커밋 중 66커밋, 약 100퍼센트"><span class="ruler-fill" style="--pct:100%"></span></div>
-      </div>
-      <p class="p-purpose">브랜딩 전략가의 1:1 상담은 단가가 높고 본인 시간이 병목이라, 수요가 있어도 공급이 늘지 않습니다. 전문가의 콘텐츠를 학습한 클론이 상담 일부를 대신하도록 설계했습니다.</p>
-      <ul class="did tight"><li>브리프 → 요구사항 → 구조 설계 순으로 <b>구현 전에 문서로 확정</b> (총 6,747줄)</li><li>전문가 교정과 운영자 승인을 거친 지식만 공개하는 <b>검증 루프</b> 구현</li><li>기능을 스토리 단위로 나눠 구현 문서 <b>13건</b>, 에픽마다 회고와 보류 목록 관리</li><li>공개 범위를 단계로 나눈 로드맵 — 내부 정교화 → 팬 상담 → 리포트 → 멀티 클론</li></ul>
-      <p class="note">실존 전문가를 상정한 <b>제안용 프로젝트</b>로 계약은 없었습니다. 실명과 저장소는 공개하지 않으며 응답 품질은 검증하지 않았습니다. 구현 화면과 설계 문서는 면접 자리에서 직접 보여드릴 수 있습니다.</p>
+      <ul class="stack p-tags" aria-label="키워드"><li>#리서치</li><li>#공시분석</li><li>#발표</li><li>#SWOT</li><li>#진행중</li></ul>
+      <table class="meta"><tr><th>기간</th><td>2026.09.21 – 10.20 <span style="color:var(--ink-soft)">(4주 · 진행 중)</span></td></tr><tr><th>팀·역할</th><td>3명 — 리서치와 자료 제작, 1주차 발표 담당</td></tr><tr><th>도구</th><td>OpenDART · Claude Code · 발표자료</td></tr></table>
+      <p class="p-purpose">가설을 세우고 근거로 확인해 결정까지 가는 것이 과제의 목적입니다. 주차마다 지정 기업과 자유 기업을 함께 다루고, 분석 결과를 10~15장으로 정리해 발표합니다.</p>
+      <ul class="did tight"><li>1주차 디어유(376300) — 핵심 질문을 먼저 세우고 <b>공시 16건 · IR 자료 14건 · 앱 리뷰 35건</b>으로 확인, 팀 자료를 모아 <b>발표 담당</b></li><li>1주차 팀 최종본 검수 — 매출 구성 그래프의 기획사 몫 누락과 순이익 브리지의 중복 반영을 고쳐 반영</li><li>2주차 플리토(300080) — 리서치와 자료 제작 담당, 연결 재무제표 주석에서 <b>단일 고객 매출 비중 48.7%</b>를 확인하고 최대 위협을 그 고객의 이탈로 판단</li><li>공시 수집은 Claude Code로 자동화하고, 핵심 질문과 SWOT·종합 평가는 직접 판단해 기록</li></ul>
+      <p class="note">4주 중 <b>2주차까지 진행된 상태</b>이며 3·4주차 결과는 아직 없습니다. 투자 판단이 아니라 사업 구조를 읽는 연습 과제이고, 기업의 실제 의사결정에 쓰인 자료는 아닙니다. 과제 자료는 내부 자료라 공개하지 않습니다.</p>
       <details class="more">
         <summary><span><span class="when-closed">발생한 문제와 해결 과정</span><span class="when-open">발생한 문제와 해결 과정 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
         <div class="more-body">
           <div class="prob">
-            <p class="problem">전문가 한 사람의 시간이 상담의 병목이었습니다.</p>
-
-      <figure class="fig">
-        <div class="scroll">
-        <svg viewBox="0 0 640 128" role="img" aria-labelledby="f-cl">
-          <title id="f-cl">클론의 지식이 공개되기까지 거치는 다섯 단계. 전문가 교정과 운영자 승인을 통과해야 공개된다</title>
-          <defs><marker id="m-cl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ar-ink" d="M0 0 L10 5 L0 10z"/></marker></defs>
-          <rect class="d-box"   x="8"   y="30" width="104" height="56"/><text class="d-t" x="60"  y="63" text-anchor="middle">콘텐츠 학습</text>
-          <rect class="d-after" x="136" y="30" width="104" height="56"/><text class="d-t" x="188" y="63" text-anchor="middle">전문가 교정</text>
-          <rect class="d-after" x="264" y="30" width="104" height="56"/><text class="d-t" x="316" y="63" text-anchor="middle">운영자 승인</text>
-          <rect class="d-box"   x="392" y="30" width="112" height="56"/><text class="d-t" x="448" y="63" text-anchor="middle">지식베이스 반영</text>
-          <rect class="d-box"   x="528" y="30" width="104" height="56"/><text class="d-t" x="580" y="63" text-anchor="middle">공개</text>
-          <line class="d-line" x1="112" y1="58" x2="132" y2="58" marker-end="url(#m-cl)"/>
-          <line class="d-line" x1="240" y1="58" x2="260" y2="58" marker-end="url(#m-cl)"/>
-          <line class="d-line" x1="368" y1="58" x2="388" y2="58" marker-end="url(#m-cl)"/>
-          <line class="d-line" x1="504" y1="58" x2="524" y2="58" marker-end="url(#m-cl)"/>
-          <text class="d-blue" x="252" y="114" text-anchor="middle">이 두 단계를 통과한 지식만 공개 대상이 됩니다</text>
-        </svg>
-        </div>
-      </figure>
-<table class="sum"><tr><th scope="row">문제</th><td>1:1 상담은 단가가 높고 전문가 본인의 시간이 병목이라, 찾는 사람이 있어도 더 받을 수가 없었습니다.</td></tr><tr><th scope="row">판단</th><td>클론이 상담 일부를 대신하되, 틀린 말이 나가는 위험은 사후 대응이 아니라 공개 순서로 막아야 한다고 봤습니다.</td></tr><tr><th scope="row">조치</th><td>전문가가 위키형 채팅으로 클론의 지식을 열람·교정하고, 운영자가 승인한 지식만 지식베이스에 반영한 뒤 공개하도록 설계했습니다.</td></tr><tr><th scope="row">결과</th><td>전문가 교정과 운영자 승인을 통과하지 않은 지식은 공개 대상에 오르지 않습니다. 모델은 비용을 쓰지 않도록 Gemini 무료 티어로 고정했습니다.</td></tr></table>
-          </div>
-          <div class="prob">
-            <p class="problem">같은 지식을 두 사람이 동시에 승인하면 먼저 처리된 결과가 사라질 수 있었습니다.</p>
-            <table class="sum"><tr><th scope="row">문제</th><td>구현 전 설계 검토에서 문제 5건이 걸렸고, 그중 하나가 동시 승인 때 먼저 처리된 결과가 사라지는 문제였습니다.</td></tr><tr><th scope="row">판단</th><td>구현을 끝낸 뒤에 발견했다면 되돌릴 범위가 훨씬 컸을 문제입니다. 구현 전에 발견해서 코드를 쓰기 전에 설계부터 고칠 수 있었습니다.</td></tr><tr><th scope="row">조치</th><td>설계 문서와 인프라 설정, 코드, 테스트까지 함께 고쳐 반영했습니다.</td></tr><tr><th scope="row">결과</th><td>구현에 들어가기 전에 결함 5건이 문서로 정리됐습니다. KiniQ에서 가장 오래 막혔던 기획·설계 단계를 이번에는 먼저 끝낸 셈입니다.</td></tr></table>
+            <p class="problem">매출이 늘고 있는 회사인데, 그 성장을 어디까지 믿어도 되는지가 자료에 없었습니다.</p>
+<table class="sum"><tr><th scope="row">문제</th><td>플리토는 AI 학습 데이터 판매로 매출이 늘고 있었지만, 공개된 소개 자료만으로는 그 매출이 어디서 오는지 알 수 없었습니다.</td></tr><tr><th scope="row">판단</th><td>성장의 지속 가능성은 매출의 크기가 아니라 매출이 누구에게 의존하는지에서 갈린다고 봤습니다. 사업보고서 본문이 아니라 연결 재무제표 주석을 봐야 한다고 판단했습니다.</td></tr><tr><th scope="row">조치</th><td>연결 재무제표 주석에서 주요 고객별 매출 비중을 찾아 단일 고객이 48.7%를 차지하는 것을 확인하고, 공급계약 공시를 시점순으로 추적해 그 고객과의 거래가 언제부터 늘었는지 맞춰 봤습니다.</td></tr><tr><th scope="row">결과</th><td>SWOT의 최대 위협을 '해당 고객의 이탈'로 확정하고, 종합 평가의 근거로 썼습니다. 숫자마다 출처와 시점을 적어 질문이 들어와도 바로 댈 수 있게 했습니다.</td></tr></table>
           </div>
         </div>
       </details>
