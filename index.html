@@ -554,12 +554,12 @@
         <summary><span><span class="when-closed">발생한 문제와 해결 과정</span><span class="when-open">발생한 문제와 해결 과정 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
         <div class="more-body">
           <div class="prob">
-            <p class="problem">검진 결과지의 HDL 수치가 총콜레스테롤 칸으로 새어 들어갔습니다.</p>
+            <p class="problem">검진 결과지의 고밀도콜레스테롤 수치가 총콜레스테롤 칸으로 새어 들어갔습니다.</p>
 
       <figure class="fig">
         <div class="scroll">
         <svg viewBox="0 0 640 238" role="img" aria-labelledby="f-ocr">
-          <title id="f-ocr">표 형식 결과지에서 두 줄짜리 HDL 칸의 값이 총콜레스테롤로 잘못 읽히던 상태와 고친 뒤 읽힌 값</title>
+          <title id="f-ocr">표 형식 결과지에서 두 줄짜리 고밀도콜레스테롤 칸의 값이 총콜레스테롤로 잘못 읽히던 상태와 고친 뒤 읽힌 값</title>
           <defs><marker id="m-ocr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ar-red" d="M0 0 L10 5 L0 10z"/></marker></defs>
           <text class="d-cap" x="16" y="22">표 형식 결과지 (예시 값)</text>
           <rect class="d-box" x="16" y="34" width="250" height="186"/>
@@ -573,14 +573,14 @@
           <text class="d-cap" x="392" y="22">고친 뒤 읽힌 값</text>
           <rect class="d-after" x="392" y="34" width="232" height="120"/>
           <text class="d-t" x="408" y="66">총콜레스테롤</text><text class="d-t" x="572" y="66">190</text>
-          <text class="d-t" x="408" y="100">HDL</text><text class="d-t" x="572" y="100">52</text>
+          <text class="d-t" x="408" y="100">고밀도콜레스테롤</text><text class="d-t" x="572" y="100">52</text>
           <text class="d-t" x="408" y="134">중성지방</text><text class="d-t" x="572" y="134">120</text>
           <text class="d-s" x="392" y="182">글자 조각의 좌표로 같은 행을 다시 묶고</text>
-          <text class="d-s" x="392" y="202">두 줄짜리 HDL 칸은 칸 경계 기준으로 따로 읽음</text>
+          <text class="d-s" x="392" y="202">두 줄짜리 칸은 칸 경계 기준으로 따로 읽음</text>
         </svg>
         </div>
       </figure>
-<table class="sum"><tr><th scope="row">문제</th><td>결과지 사진을 올리면 수치가 자동으로 채워져야 하는데, 표 형식 결과지에서 HDL 값이 총콜레스테롤 칸으로 들어갔습니다.</td></tr><tr><th scope="row">판단</th><td>OCR이 글자 조각마다 줄을 바꿔 한 행이 흩어진 것이 원인이었습니다. 줄바꿈 신호가 아니라 글자의 위치로 행을 판단해야 한다고 봤습니다.</td></tr><tr><th scope="row">조치</th><td>좌표로 같은 행을 다시 묶고, &ldquo;고밀도&middot;저밀도&rdquo;가 들어간 행은 총콜레스테롤로 매핑하지 않게 막았습니다. 두 줄짜리 HDL 칸은 칸 경계를 기준으로 따로 읽습니다.</td></tr><tr><th scope="row">결과</th><td>혈압·공복혈당·콜레스테롤 등 <b>10종</b>을 자동으로 채우고, 여러 쪽짜리 PDF는 쪽 단위로 나눠 처리합니다.</td></tr></table>
+<table class="sum"><tr><th scope="row">문제</th><td>결과지 사진을 올리면 수치가 자동으로 채워져야 하는데, 표 형식 결과지에서 고밀도콜레스테롤 값이 총콜레스테롤 칸으로 들어갔습니다.</td></tr><tr><th scope="row">판단</th><td>OCR이 글자 조각마다 줄을 바꿔 한 행이 흩어진 것이 원인이었습니다. 줄바꿈 신호가 아니라 글자의 위치로 행을 판단해야 한다고 봤습니다.</td></tr><tr><th scope="row">조치</th><td>좌표로 같은 행을 다시 묶고, &ldquo;고밀도&middot;저밀도&rdquo;가 들어간 행은 총콜레스테롤로 매핑하지 않게 막았습니다. 두 줄짜리 고밀도콜레스테롤 칸은 칸 경계를 기준으로 따로 읽습니다.</td></tr><tr><th scope="row">결과</th><td>혈압·공복혈당·콜레스테롤 등 <b>10종</b>을 자동으로 채우고, 여러 쪽짜리 PDF는 쪽 단위로 나눠 처리합니다.</td></tr></table>
           </div>
           <div class="prob">
             <p class="problem">받은 템플릿의 MySQL로는 형태가 바뀌는 기록과 의료 수치를 함께 담기 어려웠습니다.</p>
