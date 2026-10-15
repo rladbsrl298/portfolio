@@ -511,6 +511,26 @@
   .d-mine { stroke: var(--accent); stroke-width: 2.4; fill: none; }
   .d-lane { stroke: var(--ink-soft); stroke-width: 1.6; fill: none; }
   .d-dot  { fill: var(--accent); }
+
+  /* ================= 개편 F: 왜 만들었나 · 결과 형식 · 한 장 정리 ================= */
+  .why { margin: 0 0 1.5rem; padding: 1rem 1.15rem 1.05rem; border: 1px solid var(--rule); border-left: 3px solid var(--accent); background: var(--paper); max-width: 46rem; }
+  .why h3 { font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: .1em; color: var(--accent); margin: 0 0 .45rem; }
+  .why p { margin: 0; font-size: .9375rem; }
+  .why p b { font-weight: 700; }
+  .why ul { margin: .8rem 0 0; padding: .7rem 0 0 1.1rem; border-top: 1px dashed var(--rule); font-size: .875rem; color: var(--ink-soft); }
+  .why li { margin-bottom: .55rem; } .why li:last-child { margin-bottom: 0; }
+  .why .cite { display: block; font-size: .8125rem; color: var(--ink-soft); opacity: .85; margin-top: .1rem; }
+  .why li b { color: var(--ink); font-weight: 700; }
+  .result { margin: 1.5rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .result > div { border: 1px solid var(--rule); background: var(--paper); padding: .9rem 1.1rem; }
+  .result h4 { font-size: .875rem; font-weight: 800; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  .result ol { margin: 0; padding-left: 1.2rem; font-size: .875rem; }
+  .result li { margin-bottom: .3rem; }
+  .result li b { color: var(--accent); }
+  .result .r-note { grid-column: 1 / -1; margin: 0; font-size: .8125rem; color: var(--ink-soft); }
+  @media (max-width: 640px) { .result { grid-template-columns: 1fr; } }
+  .more + .more { margin-top: .75rem; }
+  .more.rep > summary, .more.rep > summary:hover { border-left-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -524,7 +544,7 @@
     <p class="declare">무엇이 막혀 있는지 먼저 적고,<br>그다음에 만듭니다.</p>
     <p class="pitch">
       보건행정학을 전공하고 AI 헬스케어 개발 과정과 바이브코딩대학 AX컨설턴트 과정을 거쳤습니다.
-      프로젝트마다 무엇을 했는지 먼저 보이고, 발생한 문제와 해결 과정은 펼쳐서 볼 수 있습니다.
+      프로젝트마다 왜 만들었는지와 무엇을 했는지 먼저 보이고, 발생한 문제와 해결 과정, 한 장 정리는 펼쳐서 볼 수 있습니다.
     </p>
   </header>
 
@@ -541,14 +561,22 @@
         <p class="p-kicker">검진 결과를 넣으면 위험 단계와 맞춤 생활습관 챌린지를 받는 헬스케어 웹 서비스</p>
       </header>
       <ul class="stack p-tags" aria-label="키워드"><li>#헬스케어</li><li>#풀스택</li><li>#OCR</li><li>#PostgreSQL</li><li>#부하테스트</li></ul>
-      <table class="meta"><tr><th>기간</th><td>2026.04.23 – 06.19 <span style="color:var(--ink-soft)">(304시간)</span></td></tr><tr><th>팀·역할</th><td>4명 — 저는 프론트엔드와 백엔드 전 구간, 팀원들은 RAG 모델링</td></tr><tr><th>기술</th><td>FastAPI · PostgreSQL 16 · Tortoise ORM · React 19 · TypeScript · TanStack Query · CLOVA OCR</td></tr></table>
+      <table class="meta"><tr><th>기간</th><td>2026.04.23 – 06.19 <span style="color:var(--ink-soft)">(304시간)</span></td></tr><tr><th>팀·역할</th><td>4명 — 저는 화면 전체와 API·배포, 팀원들은 위험 예측 모델과 RAG 챗봇</td></tr><tr><th>기술</th><td>FastAPI · PostgreSQL 16 · Tortoise ORM · React 19 · TypeScript · TanStack Query · CLOVA OCR · Docker · AWS EC2</td></tr></table>
       <div class="ruler">
         <p class="ruler-label">내 커밋 <b>97 / 124</b></p>
         <div class="ruler-track" role="img" aria-label="전체 124커밋 중 97커밋, 약 78퍼센트"><span class="ruler-fill" style="--pct:78%"></span></div>
       </div>
       <p class="p-purpose">40세 이상 만성신장질환 위험군이 건강검진 결과를 입력하면 G1~G4 위험 단계를 배정받고, 단계에 맞는 생활습관 챌린지와 대시보드를 받는 서비스입니다.</p>
-      <ul class="did tight"><li>검진 입력 → 위험 단계 배정 → 챌린지 → 대시보드까지 <b>화면과 API 전 구간</b></li><li>결과지 사진·PDF에서 수치 <b>10종 자동 입력</b> (OCR)</li><li>DB를 PostgreSQL로 교체하고 운영 중 스키마 변경 <b>16번 무중단</b> 적용</li><li>보안 필수 항목 <b>8건</b>, 동시 접속 50명 부하 테스트에서 조회 P95 <b>18ms</b></li></ul>
-      <p class="note">팀 밖의 사용자가 써본 적은 없습니다. 위험 예측 모델은 팀원이 맡았고 저는 성능을 주장하지 않습니다. 커밋 78%는 <b>분담의 결과</b>입니다 — 팀원들의 RAG 실험은 커밋으로 잡히지 않습니다.</p>
+      <div class="why">
+        <h3>왜 만들었나</h3>
+        <p>만성콩팥병은 증상 없이 진행돼, 검진 결과지를 받아도 숫자가 무슨 뜻인지, 오늘 무엇을 해야 하는지 알기 어렵습니다. 병원은 처방과 검사까지만 하고 일상 관리는 본인 몫입니다. 그래서 검진 결과를 넣으면 위험 단계를 알려 주고, 단계에 맞는 생활습관을 매일 실천하게 돕는 서비스를 만들었습니다.</p>
+        <ul>
+          <li>국내 만성콩팥병 환자는 2012년 13만 7천 명에서 2022년 29만 6천 명으로 <b>10년 동안 2배 넘게</b> 늘었고, 진료비는 1조 2천억 원에서 2조 3천억 원이 됐습니다.<span class="cite">질병관리청 「주간 건강과 질병」 2024;17:381–382 (팀 결과보고서 인용)</span></li>
+          <li>주제는 참여기업 Talos가 제시했고, 기업의 관여는 주제 제공까지였습니다.</li>
+        </ul>
+      </div>
+      <ul class="did tight"><li>검진 입력 → 위험 단계 배정 → 챌린지 → 대시보드까지 <b>화면 전체와 API</b> — 팀원이 도운 화면과 로직도 이어받아 하나로 통합</li><li>결과지 사진·PDF에서 수치 <b>10종 자동 입력</b> (OCR)</li><li>DB를 PostgreSQL로 교체하고 운영 중 스키마 변경 <b>16번 무중단</b> 적용</li><li>보안 필수 항목 <b>8건</b>, 동시 접속 50명 부하 테스트에서 조회 P95 <b>18ms</b></li><li>AWS EC2에 접속해 <b>Docker 컨테이너를 띄우는 배포</b> 담당</li></ul>
+      <p class="note">팀 밖의 사용자가 써본 적은 없습니다. 위험 예측 모델은 팀원이 맡았고 저는 성능을 주장하지 않습니다. 커밋 78%는 <b>분담의 결과</b>입니다 — 팀원들의 예측 모델·RAG 실험은 커밋으로 잡히지 않습니다.</p>
       <a class="repo" href="https://github.com/rladbsrl298/AH_03_02">github.com/rladbsrl298/AH_03_02</a>
       <details class="more">
         <summary><span><span class="when-closed">발생한 문제와 해결 과정</span><span class="when-open">발생한 문제와 해결 과정 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
@@ -597,6 +625,12 @@
           </div>
         </div>
       </details>
+      <details class="more rep">
+        <summary><span><span class="when-closed">한 장 정리 — 목표 · 역할 · 진행 · 결과</span><span class="when-open">한 장 정리 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="more-body">
+          <table class="sum"><tr><th scope="row">목표</th><td>검진 결과 입력 → 위험 단계 → 생활습관 챌린지 → 대시보드로 이어지는 한 흐름을 만든다</td></tr><tr><th scope="row">내 역할</th><td>화면 전체와 API(커밋 97 / 124). 팀원이 도운 화면·로직을 이어받아 통합, OCR과 게이미피케이션은 단독 구현, AWS EC2에 Docker로 배포</td></tr><tr><th scope="row">진행 과정</th><td>기획(~5.19) → 1차 스프린트: 인증·DB(~5.26) → 2차: AI 핵심 기능·OCR(~6.01) → 3차: 통합·화면 다듬기·부하 테스트(~6.17) → 발표(6.19)</td></tr><tr><th scope="row">결과</th><td>수치 10종 자동 입력, 운영 중 스키마 변경 16번 무중단, 동시 접속 50명 부하 테스트에서 조회 P95 18ms, 기술 선택 기록(ADR) 4건</td></tr><tr><th scope="row">배운 점</th><td>결과가 틀리면 규칙부터 고치기보다 데이터가 어떻게 들어오는지 먼저 봐야 한다는 것. 가장 오래 막힌 곳은 기획·설계 단계였고, 이후 프로젝트에서는 문서를 먼저 쓰게 됐습니다</td></tr><tr class="lim"><th scope="row">한계</th><td>팀 밖의 사용자가 써 본 적은 없습니다. 위험 예측 모델은 팀원이 맡아 성능을 주장하지 않습니다</td></tr></table>
+        </div>
+      </details>
     </article>
 
     <article class="project">
@@ -606,13 +640,32 @@
         <p class="p-kicker">전문가의 블로그·SNS·저서를 학습한 AI가 1:1 상담 일부를 대신하는 서비스</p>
       </header>
       <ul class="stack p-tags" aria-label="키워드"><li>#AX</li><li>#챗봇</li><li>#설계문서</li><li>#검증루프</li><li>#단독</li></ul>
-      <table class="meta"><tr><th>기간</th><td>2026.07.16 – 07.24 <span style="color:var(--ink-soft)">(8일)</span></td></tr><tr><th>팀·역할</th><td>단독 — 기획·설계·구현</td></tr><tr><th>기술</th><td>Next.js · Supabase · Drizzle ORM · Gemini · BMAD Method</td></tr></table>
+      <table class="meta"><tr><th>기간</th><td>2026.07.16 – 07.24 <span style="color:var(--ink-soft)">(8일)</span></td></tr><tr><th>팀·역할</th><td>단독 — 기획·설계·구현</td></tr><tr><th>기술</th><td>Next.js · Supabase · Drizzle ORM · Gemini · BMAD Method</td></tr><tr><th>만든 방법</th><td>Claude Code + BMAD — BMAD(기획 문서를 단계별로 쓰게 돕는 방법론)로 브리프·요구사항·설계 문서를 먼저 쓰고, Claude Code로 기능을 하나씩 구현</td></tr></table>
       <div class="ruler">
         <p class="ruler-label">내 커밋 <b>66 / 66</b></p>
         <div class="ruler-track" role="img" aria-label="전체 66커밋 중 66커밋, 약 100퍼센트"><span class="ruler-fill" style="--pct:100%"></span></div>
       </div>
       <p class="p-purpose">브랜딩 전략가의 1:1 상담은 단가가 높고 본인 시간이 병목이라, 수요가 있어도 공급이 늘지 않습니다. 전문가의 콘텐츠를 학습한 클론이 상담 일부를 대신하도록 설계했습니다.</p>
-      <ul class="did tight"><li>브리프 → 요구사항 → 구조 설계 순으로 <b>구현 전에 문서로 확정</b> (총 6,747줄)</li><li>전문가 교정과 운영자 승인을 거친 지식만 공개하는 <b>검증 루프</b> 구현</li><li>기능을 스토리 단위로 나눠 구현 문서 <b>13건</b>, 에픽마다 회고와 보류 목록 관리</li><li>공개 범위를 단계로 나눈 로드맵 — 내부 정교화 → 팬 상담 → 리포트 → 멀티 클론</li></ul>
+      <div class="why">
+        <h3>왜 만들었나</h3>
+        <p>클론이 많이 답하는 것보다, <b>틀린 답이 전문가 이름으로 나가지 않게 하는 것</b>이 먼저라고 봤습니다. 그래서 전문가가 확인하고 운영자가 승인한 내용만 답하도록 설계했습니다.</p>
+        <ul>
+          <li>코치·크리에이터·전문가가 자기 자료로 AI 클론을 만들어 더 많은 사람에게 답하게 하는 서비스 Delphi가 <b>270만 달러</b> 투자를 받았습니다.<span class="cite">VentureBeat, 2023.09.06</span></li>
+          <li>에어캐나다 챗봇이 환불 규정을 잘못 안내하자, 재판소는 <b>회사가 책임져야 한다</b>고 판단했습니다. 가트너는 챗봇 답변을 사람이 미리 검토·승인하는 절차를 권했습니다.<span class="cite">CIO 코리아, 2024.02.21</span></li>
+        </ul>
+      </div>
+      <ul class="did tight"><li>브리프 → 요구사항 → 구조 설계 순으로 <b>구현 전에 문서로 확정</b> (총 6,747줄)</li><li>전문가 교정과 운영자 승인을 거친 지식만 공개하는 <b>검증 루프</b> 구현</li><li>기능을 스토리 단위로 나눠 구현 문서 <b>18건</b>, 에픽마다 회고와 보류 목록 관리</li><li>공개 범위를 단계로 나눈 로드맵 — 내부 정교화 → 팬 상담 → 리포트 → 멀티 클론</li></ul>
+      <div class="result">
+        <div>
+          <h4>지식이 공개되기까지</h4>
+          <ol><li><b>전문가</b>가 클론의 지식을 채팅으로 읽고, 틀린 곳은 고쳐 달라고 요청</li><li><b>운영자</b>가 요청을 검토해 승인하거나 반려</li><li>승인된 지식만 지식베이스에 반영 — 승인을 되돌릴 수도 있음</li><li><b>회원</b>이 상담을 받고, 대화를 바탕으로 리포트를 받음</li></ol>
+        </div>
+        <div>
+          <h4>상담 리포트 · 5부 구성</h4>
+          <ol><li><b>상황 요약</b> — 상담 대화에서 고객의 상황을 정리</li><li><b>진단</b> — 무엇이 문제인지</li><li><b>프레임워크 대입</b> — 전문가의 방법론에 맞춰 보기</li><li><b>처방 3가지</b> — 바로 해 볼 수 있는 조치</li><li><b>근거</b> — 진단·처방마다 출처 표시, 근거 없는 내용은 넣지 않음</li></ol>
+        </div>
+        <p class="r-note">설계 문서(Story 7.1) 기준 결과 형식입니다. 실제 응답 화면이 아니며, 응답 품질은 검증하지 않았습니다. 승인된 지식에 근거가 없으면 "모른다"고 답하도록 지시했습니다.</p>
+      </div>
       <a class="repo" href="https://github.com/rladbsrl298/clone-expert">github.com/rladbsrl298/clone-expert</a>
       <p class="note">실존 전문가를 상정한 <b>제안용 프로젝트</b>로 계약은 없었습니다. 소재가 된 전문가의 실명과 저서·채널 이름은 <b>가명으로 바꾼 공개본</b>을 올렸으며, 응답 품질은 검증하지 않았습니다. 설계 문서 원본은 면접 자리에서 직접 보여드릴 수 있습니다.</p>
       <details class="more">
@@ -647,6 +700,12 @@
           </div>
         </div>
       </details>
+      <details class="more rep">
+        <summary><span><span class="when-closed">한 장 정리 — 목표 · 역할 · 진행 · 결과</span><span class="when-open">한 장 정리 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="more-body">
+          <table class="sum"><tr><th scope="row">목표</th><td>전문가의 시간 없이도 상담 일부를 대신하되, 틀린 답은 나가지 않게 한다</td></tr><tr><th scope="row">내 역할</th><td>단독 — 기획·설계·구현·테스트 (커밋 66 / 66)</td></tr><tr><th scope="row">진행 과정</th><td>기획 문서(브리프 → 요구사항 → 구조 설계, 총 6,747줄) → 설계 검토(지적 5건 반영) → 기능을 스토리 단위로 나눠 구현(18건) → 에픽마다 회고와 보류 목록</td></tr><tr><th scope="row">결과</th><td>교정 → 승인 → 공개 검증 단계, 회원 상담, 5부 상담 리포트까지 구현. 실명을 가명으로 바꾼 공개본을 GitHub에 올림</td></tr><tr><th scope="row">배운 점</th><td>KiniQ에서 가장 오래 막혔던 기획·설계를 이번에는 먼저 끝냈고, 구현 전 검토로 결함을 일찍 고칠 수 있었습니다</td></tr><tr class="lim"><th scope="row">한계</th><td>계약 없이 만든 포트폴리오용 프로젝트입니다. 실제 사용자와 응답 품질은 검증하지 않았고, 모델은 비용이 들지 않는 Gemini 무료 티어를 썼습니다</td></tr></table>
+        </div>
+      </details>
     </article>
 
     <article class="project">
@@ -662,6 +721,11 @@
         <div class="ruler-track" role="img" aria-label="전체 95커밋 중 13커밋, 약 14퍼센트"><span class="ruler-fill" style="--pct:14%"></span></div>
       </div>
       <p class="p-purpose">8개 팀 면접 담당자가 고른 지원자(약 470명)와 담당자별 가능 시간을 함께 만족하는 시간표를 자동으로 짜는 과제입니다. 실제 지원자 데이터를 다뤘습니다.</p>
+      <div class="why">
+        <h3>왜 만들었나</h3>
+        <p>팀마다 면접 볼 지원자를 따로 고르고, 담당자마다 가능한 시간도 달라서 모두를 만족하는 시간표를 사람이 짜기 어렵습니다. 팀원이 진행한 HR 담당자 인터뷰에 함께 들어가, 지금 막힌 곳과 가장 먼저 풀고 싶은 것, 해결 뒤 기대하는 모습을 들었습니다.</p>
+        <ul><li>과제 데이터: 팀별 희망 지원자 엑셀 <b>8개</b>, 취합 파일 <b>471행</b>(지원자 약 470명). 실제 지원자 정보라 저장소는 비공개입니다.</li></ul>
+      </div>
       <ul class="did tight"><li><b>인증·권한 트랙 전체</b> — 계정 사전 생성, 로그인, 담당자 전용 화면, 전 화면 권한 적용</li><li>성능 문제로 막힌 <b>배정 엔진을 넘겨받아</b> 화면과 통합</li><li>배정 결과 화면 4단계와 <b>엑셀 내보내기</b> 구현</li><li>평문 비밀번호 파일·로컬 DB를 저장소 추적에서 제외</li></ul>
       <p class="note">커밋은 95개 중 13개로 <b>팀에서 가장 적습니다.</b> 다만 인증 트랙을 끝내고, 막힌 엔진을 넘겨받고, 갈라진 작업을 하나로 합치는 작업이었습니다. 실제 지원자 데이터가 있어 저장소는 비공개이며, 순위나 수상은 없습니다.</p>
       <details class="more">
@@ -702,6 +766,12 @@
           </div>
         </div>
       </details>
+      <details class="more rep">
+        <summary><span><span class="when-closed">한 장 정리 — 목표 · 역할 · 진행 · 결과</span><span class="when-open">한 장 정리 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="more-body">
+          <table class="sum"><tr><th scope="row">목표</th><td>담당자가 고른 지원자와 가능 시간을 모두 만족하는 면접 시간표를 자동으로 만든다</td></tr><tr><th scope="row">내 역할</th><td>인증·권한(계정 사전 생성, 로그인, 담당자 전용 화면) → 막힌 배정 엔진 인수·통합 → 결과 화면 4단계와 엑셀 내보내기 (커밋 13 / 95). 팀 발표자료 40장 제작</td></tr><tr><th scope="row">진행 과정</th><td>HR 담당자 인터뷰 참석(진행은 팀원) → 인증·권한 완료 → 배정 엔진 넘겨받아 연결 → 화면 작업과 통합 → 결과 화면·엑셀 내보내기 → 발표자료 제작(발표는 팀원)</td></tr><tr><th scope="row">결과</th><td>배정 결과를 화면과 엑셀로 확인. 평문 비밀번호 파일과 로컬 데이터베이스를 저장소에서 빼 실제 지원자 정보를 지켰습니다. 발표자료 40장은 현황 진단 → 근거 → 요구사항 → 솔루션 → 데모 → 기대 효과 순서로, HR 담당자·팀 담당자·지원자 세 입장을 나눠 비교했고 성공 지표에는 실제로 잰 값만 넣었습니다</td></tr><tr class="lim"><th scope="row">한계</th><td>2일짜리 해커톤이라 순위나 수상은 없습니다. 커밋 수는 팀에서 가장 적지만, 막힌 엔진을 넘겨받아 합치는 일이었습니다</td></tr></table>
+        </div>
+      </details>
     </article>
 
     <article class="project">
@@ -711,10 +781,14 @@
         <p class="p-kicker">주차마다 산업을 정해 상장사의 사업 모델·재무·SWOT을 분석하고 10분간 발표</p>
       </header>
       <ul class="stack p-tags" aria-label="키워드"><li>#리서치</li><li>#공시분석</li><li>#발표</li><li>#SWOT</li><li>#진행중</li></ul>
-      <table class="meta"><tr><th>기간</th><td>2026.09.21 – 10.20 <span style="color:var(--ink-soft)">(4주 · 진행 중)</span></td></tr><tr><th>팀·역할</th><td>3명 — 리서치와 자료 제작, 1주차 발표 담당</td></tr><tr><th>도구</th><td>OpenDART · Claude Code · 발표자료</td></tr></table>
+      <table class="meta"><tr><th>기간</th><td>2026.09.21 – 10.20 <span style="color:var(--ink-soft)">(4주 · 진행 중)</span></td></tr><tr><th>팀·역할</th><td>3명 — 리서치와 자료 제작, 1·3주차 발표 담당</td></tr><tr><th>도구</th><td>OpenDART · Claude Code · 발표자료</td></tr><tr><th>만든 방법</th><td>Claude Code + OpenDART — 금융감독원 공시 API(OpenDART)에서 공시를 모으는 일은 Claude Code에 맡기고, 핵심 질문·SWOT·종합 평가는 직접 판단</td></tr></table>
       <p class="p-purpose">가설을 세우고 근거로 확인해 결정까지 가는 것이 과제의 목적입니다. 주차마다 지정 기업과 자유 기업을 함께 다루고, 분석 결과를 10~15장으로 정리해 발표합니다.</p>
-      <ul class="did tight"><li>1주차 디어유(376300) — 핵심 질문을 먼저 세우고 <b>공시 16건 · IR 자료 14건 · 앱 리뷰 35건</b>으로 확인, 팀 자료를 모아 <b>발표 담당</b></li><li>1주차 팀 최종본 검수 — 매출 구성 그래프의 기획사 몫 누락과 순이익 브리지의 중복 반영을 고쳐 반영</li><li>2주차 플리토(300080) — 리서치와 자료 제작 담당, 연결 재무제표 주석에서 <b>단일 고객 매출 비중 48.7%</b>를 확인하고 최대 위협을 그 고객의 이탈로 판단</li><li>공시 수집은 Claude Code로 자동화하고, 핵심 질문과 SWOT·종합 평가는 직접 판단해 기록</li></ul>
-      <p class="note">4주 중 <b>2주차까지 진행된 상태</b>이며 3·4주차 결과는 아직 없습니다. 투자 판단이 아니라 사업 구조를 읽는 연습 과제이고, 기업의 실제 의사결정에 쓰인 자료는 아닙니다. 과제 자료는 내부 자료라 공개하지 않습니다.</p>
+      <div class="why">
+        <h3>왜 하나</h3>
+        <p>회사 소개 자료에는 좋은 말만 있어서, 그 회사의 성장을 어디까지 믿어도 되는지 알 수 없습니다. 그래서 가설을 먼저 세우고, 회사가 법에 따라 공개하는 공시로 확인해 결론을 냅니다. 고객사를 만나기 전에 그 회사가 어디서 돈을 벌고 무엇이 위험한지 읽는 연습이기도 합니다.</p>
+      </div>
+      <ul class="did tight"><li>1주차 디어유(376300) — 핵심 질문을 먼저 세우고 <b>공시 16건 · IR 자료 14건 · 앱 리뷰 35건</b>으로 확인, 팀 자료를 모아 <b>발표 담당</b></li><li>1주차 팀 최종본 검수 — 매출 구성 그래프의 기획사 몫 누락과 순이익 브리지의 중복 반영을 고쳐 반영</li><li>2주차 플리토(300080) — 리서치와 자료 제작 담당, 연결 재무제표 주석에서 <b>단일 고객 매출 비중 48.7%</b>를 확인하고 최대 위협을 그 고객의 이탈로 판단</li><li>3주차 콜로세움코퍼레이션·실리콘투(257720) — <b>리서치·자료 제작·발표</b> 담당. 비상장인 콜로세움은 감사보고서 주석에서 최대 고객 한 곳이 매출의 <b>41%</b>를 차지하는 것을 확인해 가장 큰 위협을 최대 고객 이탈로, 실리콘투는 업계 흐름을 근거로 브랜드의 탈중개로 판단</li><li>공시 수집은 Claude Code로 자동화하고, 핵심 질문과 SWOT·종합 평가는 직접 판단해 기록</li></ul>
+      <p class="note">4주 중 <b>3주차까지 발표를 마쳤고</b> 4주차는 진행 중입니다. 투자 판단이 아니라 사업 구조를 읽는 연습 과제이고, 기업의 실제 의사결정에 쓰인 자료는 아닙니다. 과제 자료는 내부 자료라 공개하지 않습니다.</p>
       <details class="more">
         <summary><span><span class="when-closed">발생한 문제와 해결 과정</span><span class="when-open">발생한 문제와 해결 과정 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
         <div class="more-body">
@@ -722,6 +796,12 @@
             <p class="problem">매출이 늘고 있는 회사인데, 그 성장을 어디까지 믿어도 되는지가 자료에 없었습니다.</p>
 <table class="sum"><tr><th scope="row">문제</th><td>플리토는 AI 학습 데이터 판매로 매출이 늘고 있었지만, 공개된 소개 자료만으로는 그 매출이 어디서 오는지 알 수 없었습니다.</td></tr><tr><th scope="row">판단</th><td>성장의 지속 가능성은 매출의 크기가 아니라 매출이 누구에게 의존하는지에서 갈린다고 봤습니다. 사업보고서 본문이 아니라 연결 재무제표 주석을 봐야 한다고 판단했습니다.</td></tr><tr><th scope="row">조치</th><td>연결 재무제표 주석에서 주요 고객별 매출 비중을 찾아 단일 고객이 48.7%를 차지하는 것을 확인하고, 공급계약 공시를 시점순으로 추적해 그 고객과의 거래가 언제부터 늘었는지 맞춰 봤습니다.</td></tr><tr><th scope="row">결과</th><td>SWOT의 최대 위협을 '해당 고객의 이탈'로 확정하고, 종합 평가의 근거로 썼습니다. 숫자마다 출처와 시점을 적어 질문이 들어와도 바로 댈 수 있게 했습니다.</td></tr></table>
           </div>
+        </div>
+      </details>
+      <details class="more rep">
+        <summary><span><span class="when-closed">한 장 정리 — 목표 · 역할 · 진행 · 결과</span><span class="when-open">한 장 정리 접기</span></span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="more-body">
+          <table class="sum"><tr><th scope="row">목표</th><td>가설을 세우고, 공시로 확인해, 결론까지 가는 연습</td></tr><tr><th scope="row">내 역할</th><td>리서치와 자료 제작, 1·3주차 발표</td></tr><tr><th scope="row">진행 과정</th><td>1주차 디어유: 핵심 질문을 먼저 세우고 공시 16건·IR 자료 14건·앱 리뷰 35건으로 확인 → 팀 최종본 검수 → 2주차 플리토: 재무제표 주석에서 한 고객 매출 비중 48.7% 확인 → 3주차 콜로세움·실리콘투: 팀원 발표자료를 원문 숫자와 대조해 15장으로 다시 만들어 발표</td></tr><tr><th scope="row">결과</th><td>주차마다 가장 큰 위협을 하나로 정해 결론을 냈고, 숫자마다 출처와 시점을 적어 질문이 들어와도 근거를 바로 댈 수 있게 했습니다</td></tr><tr class="lim"><th scope="row">한계</th><td>진행 중인 과제라 4주차 결과는 아직 없습니다. 기업의 실제 의사결정에 쓰인 자료가 아니며, 과제 자료는 내부 자료라 공개하지 않습니다</td></tr></table>
         </div>
       </details>
     </article>
@@ -759,6 +839,20 @@
         <p>에픽이 끝날 때마다 회고를 쓰고, 못 한 일은 지우지 않고 보류 목록으로 추적한다.</p></div>
       </li>
     </ol>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>쓰는 도구</h2>
+    </div>
+    <ul class="misc">
+      <li><span class="when">생성형 AI</span><span>ChatGPT · Claude · Gemini · Higgsfield(이미지·영상 생성)</span></li>
+      <li><span class="when">에이전트</span><span><strong>Claude Code</strong> — 문서 작성·개발·공시 수집 자동화 / <strong>BMAD Method</strong> — 기획 문서를 단계별로 쓰는 방법론</span></li>
+      <li><span class="when">업무 자동화</span><span><strong>n8n</strong> — 키워드 뉴스 RSS를 받아 최근 기사만 걸러 CSV와 구글 시트에 쌓는 흐름. 구글 클라우드 OAuth로 계정을 연결하고 매일 아침 9시에 자동 실행되도록 설정 (2026.10)</span></li>
+      <li><span class="when">데이터·리서치</span><span>OpenDART · Python(pandas) · SQL</span></li>
+      <li><span class="when">개발·배포</span><span>Next.js · React · FastAPI · Supabase · PostgreSQL · Docker · AWS EC2</span></li>
+      <li><span class="when">협업</span><span>Notion · GitHub</span></li>
+    </ul>
   </section>
 
   <section>
