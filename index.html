@@ -531,6 +531,8 @@
   @media (max-width: 640px) { .result { grid-template-columns: 1fr; } }
   .more + .more { margin-top: .75rem; }
   .more.rep > summary, .more.rep > summary:hover { border-left-color: var(--accent); }
+  .misc.tools li { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .misc.tools li { grid-template-columns: 1fr; gap: .15rem; } }
 </style>
 </head>
 <body>
@@ -845,10 +847,10 @@
     <div class="sec-head">
       <h2>쓰는 도구</h2>
     </div>
-    <ul class="misc">
+    <ul class="misc tools">
       <li><span class="when">생성형 AI</span><span>ChatGPT · Claude · Gemini · Higgsfield(이미지·영상 생성)</span></li>
       <li><span class="when">에이전트</span><span><strong>Claude Code</strong> — 문서 작성·개발·공시 수집 자동화 / <strong>BMAD Method</strong> — 기획 문서를 단계별로 쓰는 방법론</span></li>
-      <li><span class="when">업무 자동화</span><span><strong>n8n</strong> — 키워드 뉴스 RSS를 받아 최근 기사만 걸러 CSV와 구글 시트에 쌓는 흐름. 구글 클라우드 OAuth로 계정을 연결하고 매일 아침 9시에 자동 실행되도록 설정 (2026.10)</span></li>
+      <li><span class="when">업무 자동화</span><span><strong>n8n</strong> — 키워드 뉴스를 매일 아침 구글 시트에 자동으로 쌓는 흐름 (2026.10)</span></li>
       <li><span class="when">데이터·리서치</span><span>OpenDART · Python(pandas) · SQL</span></li>
       <li><span class="when">개발·배포</span><span>Next.js · React · FastAPI · Supabase · PostgreSQL · Docker · AWS EC2</span></li>
       <li><span class="when">협업</span><span>Notion · GitHub</span></li>
